@@ -8,6 +8,10 @@ export interface User {
   avatar?: string;
   class?: string;
   subject?: string;
+  birthDate?: string;
+  parentName?: string;
+  studentId?: string;
+  schoolYear?: string;
 }
 
 export interface AuthContextType {

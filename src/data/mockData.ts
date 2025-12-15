@@ -8,6 +8,10 @@ export const mockUsers: (User & { password: string })[] = [
     name: 'Jean Dupont',
     role: 'student',
     class: 'Terminale S',
+    birthDate: '15/03/2006',
+    parentName: 'Michel Dupont',
+    studentId: 'JDU15032006T',
+    schoolYear: '2024-2025',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jean',
   },
   {
@@ -26,6 +30,10 @@ export const mockUsers: (User & { password: string })[] = [
     name: 'Pierre Durand',
     role: 'student',
     class: '1ère ES',
+    birthDate: '22/08/2007',
+    parentName: 'Anne Durand',
+    studentId: 'PDU22082007E',
+    schoolYear: '2024-2025',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pierre',
   },
   {
