@@ -270,4 +270,169 @@ export const mockStudentsForTeacher: StudentForTeacher[] = [
   { id: '2', name: 'Pierre Durand', class: '1ère ES', average: 12.8, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pierre' },
   { id: '3', name: 'Emma Leroy', class: 'Terminale S', average: 16.2, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma' },
   { id: '4', name: 'Lucas Moreau', class: '1ère ES', average: 11.5, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lucas' },
+  { id: '5', name: 'Camille Petit', class: 'Terminale S', average: 15.0, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Camille' },
+  { id: '6', name: 'Hugo Martin', class: 'Terminale S', average: 13.2, avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Hugo' },
+];
+
+export interface TeacherClass {
+  id: string;
+  name: string;
+  level: string;
+  studentCount: number;
+}
+
+export const mockTeacherClasses: TeacherClass[] = [
+  { id: 'ts', name: 'Terminale S', level: 'Terminale', studentCount: 32 },
+  { id: '1es', name: '1ère ES', level: 'Première', studentCount: 28 },
+];
+
+export interface StudentGrade {
+  id: string;
+  studentId: string;
+  studentName: string;
+  classId: string;
+  subject: string;
+  grade: number;
+  maxGrade: number;
+  date: string;
+  evaluationType: string;
+  comment?: string;
+}
+
+export const mockStudentGrades: StudentGrade[] = [
+  { id: 'g1', studentId: '1', studentName: 'Jean Dupont', classId: 'ts', subject: 'Mathématiques', grade: 14, maxGrade: 20, date: '2024-12-10', evaluationType: 'Contrôle', comment: 'Bon travail' },
+  { id: 'g2', studentId: '3', studentName: 'Emma Leroy', classId: 'ts', subject: 'Mathématiques', grade: 17, maxGrade: 20, date: '2024-12-10', evaluationType: 'Contrôle', comment: 'Excellent' },
+  { id: 'g3', studentId: '5', studentName: 'Camille Petit', classId: 'ts', subject: 'Mathématiques', grade: 15, maxGrade: 20, date: '2024-12-10', evaluationType: 'Contrôle' },
+  { id: 'g4', studentId: '6', studentName: 'Hugo Martin', classId: 'ts', subject: 'Mathématiques', grade: 12, maxGrade: 20, date: '2024-12-10', evaluationType: 'Contrôle', comment: 'Peut mieux faire' },
+];
+
+export interface AttendanceRecord {
+  id: string;
+  studentId: string;
+  studentName: string;
+  classId: string;
+  date: string;
+  status: 'present' | 'absent' | 'late';
+  lateMinutes?: number;
+  comment?: string;
+}
+
+export const mockAttendanceRecords: AttendanceRecord[] = [
+  { id: 'a1', studentId: '1', studentName: 'Jean Dupont', classId: 'ts', date: '2024-12-12', status: 'present' },
+  { id: 'a2', studentId: '3', studentName: 'Emma Leroy', classId: 'ts', date: '2024-12-12', status: 'present' },
+  { id: 'a3', studentId: '5', studentName: 'Camille Petit', classId: 'ts', date: '2024-12-12', status: 'late', lateMinutes: 10 },
+  { id: 'a4', studentId: '6', studentName: 'Hugo Martin', classId: 'ts', date: '2024-12-12', status: 'absent', comment: 'Non justifié' },
+];
+
+export interface TextbookEntry {
+  id: string;
+  classId: string;
+  className: string;
+  date: string;
+  subject: string;
+  title: string;
+  content: string;
+  homework?: string;
+  homeworkDueDate?: string;
+}
+
+export const mockTextbookEntries: TextbookEntry[] = [
+  {
+    id: 't1',
+    classId: 'ts',
+    className: 'Terminale S',
+    date: '2024-12-12',
+    subject: 'Mathématiques',
+    title: 'Chapitre 5: Les dérivées',
+    content: 'Cours sur les dérivées de fonctions composées. Exercices 1 à 5 page 124.',
+    homework: 'Exercices 6 à 10 page 125',
+    homeworkDueDate: '2024-12-16',
+  },
+  {
+    id: 't2',
+    classId: 'ts',
+    className: 'Terminale S',
+    date: '2024-12-11',
+    subject: 'Mathématiques',
+    title: 'Chapitre 5: Les dérivées',
+    content: 'Introduction aux dérivées. Définition et interprétation graphique.',
+  },
+  {
+    id: 't3',
+    classId: '1es',
+    className: '1ère ES',
+    date: '2024-12-12',
+    subject: 'Mathématiques',
+    title: 'Chapitre 4: Statistiques',
+    content: 'Cours sur la variance et l\'écart-type.',
+    homework: 'DM n°5 à rendre',
+    homeworkDueDate: '2024-12-18',
+  },
+];
+
+export interface TeacherConversation {
+  id: string;
+  studentId: string;
+  studentName: string;
+  studentClass: string;
+  avatar: string;
+  lastMessage: string;
+  lastMessageTime: string;
+  unreadCount: number;
+}
+
+export const mockTeacherConversations: TeacherConversation[] = [
+  {
+    id: 'tconv1',
+    studentId: '1',
+    studentName: 'Jean Dupont',
+    studentClass: 'Terminale S',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jean',
+    lastMessage: 'Bonjour Madame, j\'ai quelques difficultés avec les dérivées composées.',
+    lastMessageTime: '2024-12-12T10:30:00',
+    unreadCount: 1,
+  },
+  {
+    id: 'tconv2',
+    studentId: '3',
+    studentName: 'Emma Leroy',
+    studentClass: 'Terminale S',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emma',
+    lastMessage: 'Merci pour votre aide !',
+    lastMessageTime: '2024-12-11T15:00:00',
+    unreadCount: 0,
+  },
+  {
+    id: 'tconv3',
+    studentId: '2',
+    studentName: 'Pierre Durand',
+    studentClass: '1ère ES',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pierre',
+    lastMessage: 'Je serai absent demain pour un RDV médical.',
+    lastMessageTime: '2024-12-10T18:20:00',
+    unreadCount: 0,
+  },
+];
+
+export const mockTeacherMessages: Message[] = [
+  {
+    id: 'tmsg1',
+    conversationId: 'tconv1',
+    senderId: '2',
+    senderName: 'Mme Martin',
+    senderRole: 'teacher',
+    content: 'Bonjour Jean, comment avancez-vous sur les exercices de dérivées ?',
+    timestamp: '2024-12-12T10:00:00',
+    read: true,
+  },
+  {
+    id: 'tmsg2',
+    conversationId: 'tconv1',
+    senderId: '1',
+    senderName: 'Jean Dupont',
+    senderRole: 'student',
+    content: 'Bonjour Madame, j\'ai quelques difficultés avec les dérivées composées.',
+    timestamp: '2024-12-12T10:30:00',
+    read: false,
+  },
 ];
