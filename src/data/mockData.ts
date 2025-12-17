@@ -135,6 +135,128 @@ export const mockAbsences: Absence[] = [
   { id: '6', date: '2024-11-20', type: 'absence', duration: '4 heures', reason: 'Problème familial', justified: true },
 ];
 
+export interface Message {
+  id: string;
+  conversationId: string;
+  senderId: string;
+  senderName: string;
+  senderRole: 'student' | 'teacher';
+  content: string;
+  timestamp: string;
+  read: boolean;
+}
+
+export interface Conversation {
+  id: string;
+  participantId: string;
+  participantName: string;
+  participantRole: 'teacher';
+  subject: string;
+  avatar: string;
+  lastMessage: string;
+  lastMessageTime: string;
+  unreadCount: number;
+}
+
+export const mockConversations: Conversation[] = [
+  {
+    id: 'conv1',
+    participantId: '2',
+    participantName: 'Mme Martin',
+    participantRole: 'teacher',
+    subject: 'Mathématiques',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Marie',
+    lastMessage: 'N\'oubliez pas de réviser les dérivées pour le prochain contrôle.',
+    lastMessageTime: '2024-12-12T14:30:00',
+    unreadCount: 2,
+  },
+  {
+    id: 'conv2',
+    participantId: '4',
+    participantName: 'Mme Bernard',
+    participantRole: 'teacher',
+    subject: 'Français',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sophie',
+    lastMessage: 'Votre dissertation est très bien structurée.',
+    lastMessageTime: '2024-12-11T09:15:00',
+    unreadCount: 0,
+  },
+  {
+    id: 'conv3',
+    participantId: '5',
+    participantName: 'M. Petit',
+    participantRole: 'teacher',
+    subject: 'Physique-Chimie',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Pierre',
+    lastMessage: 'Le TP de demain portera sur l\'optique.',
+    lastMessageTime: '2024-12-10T16:45:00',
+    unreadCount: 1,
+  },
+];
+
+export const mockMessages: Message[] = [
+  {
+    id: 'msg1',
+    conversationId: 'conv1',
+    senderId: '2',
+    senderName: 'Mme Martin',
+    senderRole: 'teacher',
+    content: 'Bonjour Jean, comment avancez-vous sur les exercices de dérivées ?',
+    timestamp: '2024-12-12T10:00:00',
+    read: true,
+  },
+  {
+    id: 'msg2',
+    conversationId: 'conv1',
+    senderId: '1',
+    senderName: 'Jean Dupont',
+    senderRole: 'student',
+    content: 'Bonjour Madame, j\'ai quelques difficultés avec les dérivées composées.',
+    timestamp: '2024-12-12T10:30:00',
+    read: true,
+  },
+  {
+    id: 'msg3',
+    conversationId: 'conv1',
+    senderId: '2',
+    senderName: 'Mme Martin',
+    senderRole: 'teacher',
+    content: 'Je comprends, c\'est un sujet complexe. Venez me voir à la fin du cours demain.',
+    timestamp: '2024-12-12T11:00:00',
+    read: true,
+  },
+  {
+    id: 'msg4',
+    conversationId: 'conv1',
+    senderId: '2',
+    senderName: 'Mme Martin',
+    senderRole: 'teacher',
+    content: 'N\'oubliez pas de réviser les dérivées pour le prochain contrôle.',
+    timestamp: '2024-12-12T14:30:00',
+    read: false,
+  },
+  {
+    id: 'msg5',
+    conversationId: 'conv2',
+    senderId: '4',
+    senderName: 'Mme Bernard',
+    senderRole: 'teacher',
+    content: 'Votre dissertation est très bien structurée.',
+    timestamp: '2024-12-11T09:15:00',
+    read: true,
+  },
+  {
+    id: 'msg6',
+    conversationId: 'conv3',
+    senderId: '5',
+    senderName: 'M. Petit',
+    senderRole: 'teacher',
+    content: 'Le TP de demain portera sur l\'optique.',
+    timestamp: '2024-12-10T16:45:00',
+    read: false,
+  },
+];
+
 export interface StudentForTeacher {
   id: string;
   name: string;
