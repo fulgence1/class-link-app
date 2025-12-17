@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { StudentOverview } from './StudentOverview';
+import { StudentAbsences } from './StudentAbsences';
 import { Card, CardContent } from '@/components/ui/card';
 import { FileText, Calendar, Clock, CreditCard, MessageSquare, LayoutDashboard } from 'lucide-react';
 
@@ -57,7 +58,7 @@ export function StudentDashboard() {
           </TabsContent>
           
           <TabsContent value="absences" className="m-0">
-            <ComingSoon title="Absences" />
+            <StudentAbsences />
           </TabsContent>
           
           <TabsContent value="payments" className="m-0">
