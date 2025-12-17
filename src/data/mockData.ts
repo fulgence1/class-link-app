@@ -115,6 +115,26 @@ export const mockAnnouncements: Announcement[] = [
   },
 ];
 
+export interface Absence {
+  id: string;
+  date: string;
+  type: 'absence' | 'retard';
+  duration: string;
+  reason?: string;
+  justified: boolean;
+  justificationFile?: string;
+  course?: string;
+}
+
+export const mockAbsences: Absence[] = [
+  { id: '1', date: '2024-12-02', type: 'absence', duration: 'Journée complète', reason: 'Maladie', justified: true, justificationFile: 'certificat_medical.pdf' },
+  { id: '2', date: '2024-12-05', type: 'retard', duration: '15 min', reason: 'Transport', justified: true, course: 'Mathématiques' },
+  { id: '3', date: '2024-12-09', type: 'absence', duration: '2 heures', justified: false, course: 'Français' },
+  { id: '4', date: '2024-12-11', type: 'retard', duration: '10 min', justified: false, course: 'Physique-Chimie' },
+  { id: '5', date: '2024-11-15', type: 'absence', duration: 'Journée complète', reason: 'RDV médical', justified: true, justificationFile: 'justificatif_rdv.pdf' },
+  { id: '6', date: '2024-11-20', type: 'absence', duration: '4 heures', reason: 'Problème familial', justified: true },
+];
+
 export interface StudentForTeacher {
   id: string;
   name: string;
